@@ -1,0 +1,152 @@
+/*These media queries will allow for dynamic readjustment of the website based on the display size of the device. (makes it fully responsive and mobile freindly)*/
+
+
+@media screen and (max-width: 1400px) {
+  #profile {
+    height: 83vh;
+    margin-bottom: 6rem;
+  }
+  .about-containers {
+    flex-wrap: wrap;
+  }
+
+  /*not necessary but just making sure as I've seen overlap within this pixel range
+  so just making sure to apply fit-content again to these sections*/
+  #experience,
+  #projects {
+    height: fit-content;
+  }
+
+}
+
+
+
+@media screen and (max-width: 1200px) {
+  #desktop-nav {
+    display: none;
+  }
+  #hamburger-nav {
+    display: flex;
+  }
+  #experience,
+  .experience-details-container {
+    margin-top: 2rem;
+  }
+
+  #profile,
+  .section-container {
+    display: block;
+    
+  }
+
+  .arrow {
+    display: none;
+  }
+  section,
+  .section-container {
+    height: fit-content;
+  }
+  section {
+    margin: 0 5%;
+  }
+  .section__pic-container {
+    width: 275px;
+    height: 275px;
+    margin: 0 auto 2rem;
+  }
+  .about-containers {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #contact,
+  footer {
+    height: 40vh;
+  }
+  #profile {
+    height: 83vh;
+    margin-bottom: 0;
+  }
+
+   article {
+    font-size: 1rem;
+  }
+  footer nav {
+    height: fit-content;
+    margin-bottom: 2rem;
+  }
+  .about-containers,
+  .contact-info-upper-container,
+  .btn-container {
+    flex-wrap: wrap;
+  }
+  .contact-info-container {
+    margin: 0;
+  }
+  .contact-info-container p,
+  .nav-links li a {
+    font-size: 1rem;
+  }
+  .experience-sub-title {
+    font-size: 1.25rem;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .section__pic-container {
+    width: auto;
+    height: 46vw;
+    justify-content: center;
+  }
+  .section__text__p2 {
+    font-size: 1.25rem;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .text-container {
+    text-align: justify;
+  }
+}
+
+
+/*This media query takes into account extremy small height devices and makes sure no other section overlaps
+ with the profile section.
+ 
+ I'd classify small devices as ones with height 600 px or below (599 selected as edge case)*/
+@media screen and (max-height: 599px) {
+   
+  /*making sure to apply on contact card  below too just incase*/
+  #profile,
+  #contact {
+    height: fit-content;
+  }
+}
+
+/* Media query to fix experience descriptions to go vertical instead of bunching up on the right side */
+@media screen and (max-width: 1300px) {
+  .timeline-item {
+    flex-direction: column; /* Change to vertical layout */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .timeline-date {
+    margin-bottom: 0.5rem; /* Add some spacing between date and content */
+  }
+
+  .position-name,
+  .experience-description,
+  .logo {
+    margin-left: 0; /* Remove any left margin */
+  }
+
+  .experience-description {
+    margin-top: 0.5rem; /* Add some spacing between items */
+  }
+}
