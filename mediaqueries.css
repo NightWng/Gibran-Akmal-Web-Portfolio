@@ -1,5 +1,4 @@
-/*These media queries will allow for dynamic readjustment of the website based on the display size of the device. (makes it fully responsive and mobile freindly)*/
-
+/* Responsive breakpoints — largest to smallest */
 
 @media screen and (max-width: 1400px) {
   #profile {
@@ -9,17 +8,24 @@
   .about-containers {
     flex-wrap: wrap;
   }
-
-  /*not necessary but just making sure as I've seen overlap within this pixel range
-  so just making sure to apply fit-content again to these sections*/
   #experience,
   #projects {
     height: fit-content;
   }
-
 }
 
-
+@media screen and (max-width: 1300px) {
+  .timeline-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .timeline-date {
+    margin-bottom: 0.5rem;
+  }
+  .experience-description {
+    margin-top: 0.5rem;
+  }
+}
 
 @media screen and (max-width: 1200px) {
   #desktop-nav {
@@ -32,13 +38,10 @@
   .experience-details-container {
     margin-top: 2rem;
   }
-
   #profile,
   .section-container {
     display: block;
-    
   }
-
   .arrow {
     display: none;
   }
@@ -68,8 +71,7 @@
     height: 83vh;
     margin-bottom: 0;
   }
-
-   article {
+  article {
     font-size: 1rem;
   }
   footer nav {
@@ -115,38 +117,10 @@
   }
 }
 
-
-/*This media query takes into account extremy small height devices and makes sure no other section overlaps
- with the profile section.
- 
- I'd classify small devices as ones with height 600 px or below (599 selected as edge case)*/
+/* Very short screens — prevent section overlap */
 @media screen and (max-height: 599px) {
-   
-  /*making sure to apply on contact card  below too just incase*/
   #profile,
   #contact {
     height: fit-content;
-  }
-}
-
-/* Media query to fix experience descriptions to go vertical instead of bunching up on the right side */
-@media screen and (max-width: 1300px) {
-  .timeline-item {
-    flex-direction: column; /* Change to vertical layout */
-    align-items: flex-start; /* Align items to the left */
-  }
-
-  .timeline-date {
-    margin-bottom: 0.5rem; /* Add some spacing between date and content */
-  }
-
-  .position-name,
-  .experience-description,
-  .logo {
-    margin-left: 0; /* Remove any left margin */
-  }
-
-  .experience-description {
-    margin-top: 0.5rem; /* Add some spacing between items */
   }
 }
