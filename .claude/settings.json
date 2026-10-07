@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "PowerShell(Add-Type -AssemblyName System.Drawing; foreach \\($f in 'vr_Cover.png','KnowPros_cover.png','rev_shell.png','corrosion_classification.png','telemetry_team.jpg'\\) { $i=[System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\pc\\\\Documents\\\\GitHub\\\\Gibran-Akmal-Web-Portfolio\\\\assets\\\\$f\"\\); \"$f $\\($i.Width\\)x$\\($i.Height\\)\"; $i.Dispose\\(\\) })"
-    ]
-  }
-}
