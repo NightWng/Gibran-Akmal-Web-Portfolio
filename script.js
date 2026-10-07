@@ -32,8 +32,22 @@ function renderSkills() {
 // - modalId:   (optional) if set, the More button opens a popup modal
 //              instead of navigating to moreUrl. The modal must exist
 //              in index.html with a matching id.
+// - award:     (optional) shown as a badge under the project title
 
 const PROJECTS = [
+  {
+    title: 'Pipeline Anomaly Detection API - Corrosion',
+    image: './assets/corrosion_classification.png',
+    githubUrl: 'https://github.com/NightWng/Corrosion_Detection',
+    moreUrl: 'https://www.youtube.com/watch?v=6m8xX5XZqwQ',
+  },
+  {
+    title: 'Formula Racecar Telemetry System',
+    image: './assets/telemetry_team.jpg',
+    githubUrl: 'https://github.com/NightWng/Formula_Racecar_Telemetry_System',
+    moreUrl: 'https://ucalgaryracing.ca/cars',
+    award: '🏆 2nd Place — Schulich Engineering Design Fair',
+  },
   {
     title: 'VR + Haptic Application',
     image: './assets/vr_Cover.png',
@@ -64,6 +78,7 @@ function renderProjects() {
         <img src="${p.image}" alt="${p.title}" class="project-img" />
       </div>
       <h2 class="experience-sub-title project-title">${p.title}</h2>
+      ${p.award ? `<p class="project-award">${p.award}</p>` : ''}
       <div class="btn-container">
         <button class="btn btn-color-2 project-btn" data-url="${p.githubUrl}">Github</button>
         ${p.modalId

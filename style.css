@@ -400,15 +400,32 @@ article .icon {
   background: rgb(250, 250, 250);
 }
 
+#projects-list {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#projects-list .details-container {
+  flex: 0 1 calc((100% - 4rem) / 3);
+  min-width: 16rem;
+}
+
 .project-img {
   border-radius: 2rem;
   width: 90%;
-  height: 90%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 .project-title {
   margin: 1rem;
   color: black;
+}
+
+.project-award {
+  margin: -0.5rem 0 1rem;
+  font-weight: 600;
+  color: rgb(37, 111, 213);
 }
 
 .project-btn {
