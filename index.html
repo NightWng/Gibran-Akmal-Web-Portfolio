@@ -116,14 +116,22 @@
           <!-- Experience Timeline — add new jobs here, then create a matching modal below -->
           <div class="details-container">
             <div class="timeline">
-              <div class="timeline-item" data-modal="cc_Modal">
-                <div class="timeline-date">Oct 2025 - Present</div>
+              <div class="timeline-item" data-modal="enbridge_Modal">
+                <div class="timeline-date">July 2026 - Present</div>
                 <div class="timeline-content">
-                  <!-- TODO: replace experience.png with Critical Control logo -->
+                  <img src="./assets/enbridge_logo.png" alt="Enbridge Logo" class="company-logo" />
+                  <h2 class="experience-sub-title">Enbridge</h2>
+                  <p class="position-name">Data and Systems Engineer</p>
+                  <p class="experience-description">Strengthening the data foundations behind pipeline integrity planning, execution, and risk mitigation for Gas Transmission &amp; Midstream assets</p>
+                </div>
+              </div>
+              <div class="timeline-item" data-modal="cc_Modal">
+                <div class="timeline-date">Oct 2025 - July 2026</div>
+                <div class="timeline-content">
                   <img src="./assets/cc_logo.jfif" alt="Critical Control Logo" class="company-logo" />
                   <h2 class="experience-sub-title">Critical Control Energy Services</h2>
                   <p class="position-name">Data/Business Analyst</p>
-                  <p class="experience-description">Translate client business needs into technical specifications and lead a development team delivering system enhancements via Azure DevOps</p>
+                  <p class="experience-description">Translated client business needs into technical specifications and led a development team delivering system enhancements via Azure DevOps</p>
                 </div>
               </div>
               <div class="timeline-item" data-modal="exxon_Modal">
@@ -226,6 +234,25 @@
          Each modal corresponds to a timeline-item via its data-modal attribute.
          To add a new experience: add a timeline-item above, then add a modal here with a matching id.
     -->
+    <div class="modal" id="enbridge_Modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Enbridge - Data and Systems Engineer</h2>
+        <div class="carousel">
+          <div class="carousel-item">
+            <img src="./assets/enbridge_asset_map.jpg" alt="Enbridge North American asset map" />
+            <p>On the Integrity &amp; Risk Management (IRM) team, I support integrity planning across Enbridge's Gas Transmission &amp; Midstream (GTM) assets, turning complex, disparate data into trusted, decision-ready information for inspections, mitigations, and repairs.</p>
+            <ul>
+              <li>Unifying In-Line Inspection (ILI) and Non-Destructive Examination (NDE) datasets into consistent, well-structured integrity data schemas.</li>
+              <li>Leading records management and consolidation for digs, inspection runs, repairs, and QA/QC documentation to maintain traceability back to physical assets.</li>
+              <li>Developing a mobile digital forms application that lets field technicians capture dig/ditch data directly at the excavation site.</li>
+              <li>Building data quality rules, validation checks, and automated data health routines to deliver audit-ready datasets that can be traced, explained, and reproduced.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="modal" id="cc_Modal">
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -233,7 +260,7 @@
         <div class="carousel">
           <div class="carousel-item">
             <img src="./assets/ProMonitor_Live.png" alt="ProMonitor Live application" />
-            <p>At Critical Control Energy Services, I facilitate the translation of complex client business needs into technical specifications, acting as the technical lead for a development team delivering system enhancements via Azure DevOps.</p>
+            <p>At Critical Control Energy Services, I facilitated the translation of complex client business needs into technical specifications, acting as the technical lead for a development team delivering system enhancements via Azure DevOps.</p>
             <ul>
               <li>Managed 20+ Product Backlog Items (PBIs) per sprint within Azure DevOps, aligning developer workflows with system architecture requirements.</li>
               <li>Led a 4-person development team, defining clear acceptance criteria and achieving a 20% reduction in rework during the User Acceptance Testing (UAT) phase.</li>
