@@ -1,5 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+/* ── THEME COLORS ─────────────────────────────────────────────── */
+/* Use these variables for any new color so it works in both themes. */
+
+:root {
+  --bg: white;
+  --surface: white;
+  --surface-alt: rgb(250, 250, 250);
+  --modal-bg: #fefefe;
+  --text: black;
+  --text-muted: rgb(85, 85, 85);
+  --text-faint: #888;
+  --close: #aaa;
+  --border: rgb(163, 163, 163);
+  --btn-dark: rgb(53, 53, 53);
+  --btn-dark-hover: black;
+  --btn-dark-text: white;
+  --accent: rgb(37, 111, 213);
+  --link: rgb(46, 60, 164);
+  --link-hover: grey;
+  --link-underline: rgb(181, 181, 181);
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-alt: #242424;
+  --modal-bg: #1e1e1e;
+  --text: #f0f0f0;
+  --text-muted: #b5b5b5;
+  --text-faint: #8a8a8a;
+  --close: #8a8a8a;
+  --border: #444;
+  --btn-dark: #e0e0e0;
+  --btn-dark-hover: white;
+  --btn-dark-text: #121212;
+  --accent: rgb(90, 155, 240);
+  --link: rgb(90, 155, 240);
+  --link-hover: #ccc;
+  --link-underline: #666;
+  color-scheme: dark;
+}
+
+/* Black PNG icons → white in dark mode (logos/photos are not .icon) */
+[data-theme="dark"] .icon {
+  filter: invert(1);
+}
+
 /* ── RESET & BASE ─────────────────────────────────────────────── */
 
 * {
@@ -9,6 +56,9 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html {
@@ -16,7 +66,7 @@ html {
 }
 
 p {
-  color: rgb(85, 85, 85);
+  color: var(--text-muted);
 }
 
 a,
@@ -44,16 +94,16 @@ nav {
 }
 
 a {
-  color: black;
+  color: var(--text);
   text-decoration: none;
-  text-decoration-color: white;
+  text-decoration-color: var(--bg);
 }
 
 a:hover {
-  color: grey;
+  color: var(--link-hover);
   text-decoration: underline;
   text-underline-offset: 1rem;
-  text-decoration-color: rgb(181, 181, 181);
+  text-decoration-color: var(--link-underline);
 }
 
 .logo {
@@ -62,6 +112,27 @@ a:hover {
 
 .logo:hover {
   cursor: default;
+}
+
+/* ── THEME TOGGLE ─────────────────────────────────────────────── */
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.15);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 /* ── HAMBURGER MENU ───────────────────────────────────────────── */
@@ -87,7 +158,7 @@ a:hover {
 .hamburger-icon span {
   width: 100%;
   height: 2px;
-  background-color: black;
+  background-color: var(--text);
   transition: all 0.3s ease-in-out;
 }
 
@@ -95,7 +166,7 @@ a:hover {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: white;
+  background-color: var(--surface);
   width: fit-content;
   max-height: 0;
   overflow: hidden;
@@ -108,7 +179,7 @@ a:hover {
   padding: 10px;
   text-align: center;
   font-size: 1.5rem;
-  color: black;
+  color: var(--text);
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
@@ -165,6 +236,11 @@ section {
   margin: auto 0;
 }
 
+/* pfp has white corners — clip to circle so they don't show in dark mode */
+#profile .section__pic-container img {
+  border-radius: 50%;
+}
+
 .section__text {
   align-self: center;
   text-align: center;
@@ -184,7 +260,7 @@ section {
 }
 
 .section__text__p2 span {
-  color: rgb(37, 111, 213);
+  color: var(--accent);
 }
 
 .title {
@@ -224,7 +300,7 @@ section {
 
 .btn-color-1,
 .btn-color-2 {
-  border: rgb(53, 53, 53) 0.1rem solid;
+  border: var(--btn-dark) 0.1rem solid;
 }
 
 .btn-color-1:hover,
@@ -234,16 +310,17 @@ section {
 
 .btn-color-1,
 .btn-color-2:hover {
-  background: rgb(53, 53, 53);
-  color: white;
+  background: var(--btn-dark);
+  color: var(--btn-dark-text);
 }
 
 .btn-color-1:hover {
-  background: rgb(0, 0, 0);
+  background: var(--btn-dark-hover);
 }
 
 .btn-color-2 {
   background: none;
+  color: var(--text);
 }
 
 .btn-color-2:hover {
@@ -287,9 +364,9 @@ section {
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: white;
+  background: var(--surface);
   border-radius: 2rem;
-  border: rgb(163, 163, 163) 0.1rem solid;
+  border: var(--border) 0.1rem solid;
   text-align: center;
 }
 
@@ -302,7 +379,7 @@ section {
 }
 
 .experience-sub-title {
-  color: rgb(85, 85, 85);
+  color: var(--text-muted);
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 1rem;
@@ -381,11 +458,11 @@ article .icon {
 
 .position-name {
   font-size: 1rem;
-  color: #888;
+  color: var(--text-faint);
 }
 
 .experience-description {
-  color: rgb(85, 85, 85);
+  color: var(--text-muted);
 }
 
 /* ── PROJECTS SECTION ─────────────────────────────────────────── */
@@ -396,8 +473,8 @@ article .icon {
 }
 
 .color-container {
-  border-color: rgb(163, 163, 163);
-  background: rgb(250, 250, 250);
+  border-color: var(--border);
+  background: var(--surface-alt);
 }
 
 #projects-list {
@@ -408,6 +485,7 @@ article .icon {
 #projects-list .details-container {
   flex: 0 1 calc((100% - 4rem) / 3);
   min-width: 16rem;
+  box-sizing: border-box;
 }
 
 .project-img {
@@ -419,18 +497,18 @@ article .icon {
 
 .project-title {
   margin: 1rem;
-  color: black;
+  color: var(--text);
 }
 
 .project-award {
   margin: -0.5rem 0 1rem;
   font-weight: 600;
-  color: rgb(37, 111, 213);
+  color: var(--accent);
 }
 
 .project-btn {
-  color: black;
-  border-color: rgb(163, 163, 163);
+  color: var(--text);
+  border-color: var(--border);
 }
 
 /* ── CONTACT ──────────────────────────────────────────────────── */
@@ -446,8 +524,8 @@ article .icon {
   display: flex;
   justify-content: center;
   border-radius: 2rem;
-  border: rgb(163, 163, 163) 0.1rem solid;
-  background: rgb(250, 250, 250);
+  border: var(--border) 0.1rem solid;
+  background: var(--surface-alt);
   margin: 2rem auto;
   padding: 0.5rem;
 }
@@ -498,10 +576,10 @@ footer p {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: var(--modal-bg);
   margin: 10% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--text-faint);
   width: 80%;
   max-width: 600px;
   border-radius: 10px;
@@ -509,7 +587,7 @@ footer p {
 }
 
 .close {
-  color: #aaa;
+  color: var(--close);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -517,9 +595,14 @@ footer p {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: var(--text);
   text-decoration: none;
   cursor: pointer;
+}
+
+.modal-link {
+  color: var(--link);
+  text-underline-offset: 1px;
 }
 
 /* ── CAROUSEL ─────────────────────────────────────────────────── */
@@ -546,7 +629,7 @@ footer p {
 .carousel-item p {
   margin: 0.75rem 0 0;
   font-size: 0.9rem;
-  color: rgb(85, 85, 85);
+  color: var(--text-muted);
   line-height: 1.6;
 }
 
@@ -560,7 +643,7 @@ footer p {
   position: relative;
   padding: 0.35rem 0 0.35rem 1.25rem;
   font-size: 0.9rem;
-  color: rgb(85, 85, 85);
+  color: var(--text-muted);
   line-height: 1.5;
 }
 
@@ -571,7 +654,7 @@ footer p {
   top: 0.65rem;
   width: 7px;
   height: 7px;
-  background: rgb(37, 111, 213);
+  background: var(--accent);
   border-radius: 50%;
 }
 

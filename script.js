@@ -5,6 +5,30 @@ function toggleMenu() {
   document.querySelector('.hamburger-icon').classList.toggle('open');
 }
 
+// ── THEME (DARK MODE) ─────────────────────────────────────────────
+// Initial theme is set by the inline script in <head> (saved choice,
+// else system preference). Colors live in CSS variables in style.css.
+
+function setTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  try { localStorage.setItem('theme', theme); } catch (e) {}
+  updateThemeToggles();
+}
+
+function updateThemeToggles() {
+  const isDark = document.documentElement.dataset.theme === 'dark';
+  document.querySelectorAll('.theme-toggle').forEach(btn => {
+    btn.textContent = isDark ? '☀️' : '🌙';
+    btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+  });
+}
+
+document.querySelectorAll('.theme-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+  });
+});
+
 // ── SKILLS ────────────────────────────────────────────────────────
 // To add or remove a skill, edit this array — no HTML changes needed.
 
@@ -137,5 +161,6 @@ document.querySelectorAll('.modal').forEach(modal => {
 
 // ── INIT ──────────────────────────────────────────────────────────
 
+updateThemeToggles();
 renderSkills();
 renderProjects();

@@ -5,6 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gibran Akmal</title>
+    <script>
+      // Apply saved/system theme before first paint to avoid a light flash
+      (function () {
+        var theme;
+        try { theme = localStorage.getItem('theme'); } catch (e) {}
+        if (!theme) theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
@@ -13,27 +22,33 @@
     <!-- ===== NAVIGATION ===== -->
     <nav id="desktop-nav">
       <div class="logo">Portfolio</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <div class="nav-actions">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
     </nav>
     <nav id="hamburger-nav">
       <div class="logo">Portfolio</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+        <div class="hamburger-menu">
+          <div class="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="menu-links">
+            <li><a href="#about" onclick="toggleMenu()">About</a></li>
+            <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+            <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+            <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+          </ul>
         </div>
-        <ul class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </ul>
       </div>
     </nav>
 
@@ -309,7 +324,7 @@
           <div class="carousel-item">
             <img src="./assets/SSRT_TeamPhoto.png" alt="SSRT Team Photo" />
             <p>
-              <a href="https://ucalgaryrover.weebly.com/" style="text-underline-offset: 1px; color:rgb(46, 60, 164)">The Schulich Space Rover Team</a>
+              <a href="https://ucalgaryrover.weebly.com/" class="modal-link">The Schulich Space Rover Team</a>
               originated in September 2019 with the goal of building a Mars Rover for the Canadian International Rover Challenge.
               During my time on the team, we finished 5th place overall and 3rd place for Canadian teams at the 2022 competition.
             </p>
@@ -354,7 +369,7 @@
         <div class="carousel">
           <div class="carousel-item">
             <img src="./assets/launcher_receiver.jpg" alt="Launcher/Receiver" />
-            <p>During this 16-month internship at <a href="https://www.tcenergy.com/" style="text-underline-offset: 1px; color:rgb(46, 60, 164)">TC Energy</a>, I worked on the Operational Support/Field Data &amp; GIS Team leading a group of interns validating defect reports for in-service pipelines.</p>
+            <p>During this 16-month internship at <a href="https://www.tcenergy.com/" class="modal-link">TC Energy</a>, I worked on the Operational Support/Field Data &amp; GIS Team leading a group of interns validating defect reports for in-service pipelines.</p>
             <ul>
               <li>Used SQL and Python to build tools predicting leak likelihood based on pipeline wall thickness, reducing processing errors by 15% and improving excavation effectiveness by 20%.</li>
               <li>Automated data population procedures using VB, Power Automate, and Power Query scripts, reducing manual effort and human error by 25%.</li>
